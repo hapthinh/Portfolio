@@ -5,7 +5,7 @@ import JourneyCard from "../../components/Journey/Journey";
 
 export default function MyJourney() {
   return (
-    <section id="myJourney" className="section">
+    <section id="journey" className="section">
       <div className="container">
         <SectionTitle title="My Journey"></SectionTitle>
         <div className={styles.column}>

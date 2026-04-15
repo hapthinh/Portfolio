@@ -1,0 +1,29 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  background: #0b1220;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.drop {
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at 30% 30%, #67e8f9, #00e5ff);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00e5ff;
+
+  animation: morph 1.2s infinite alternate;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 50% 50% 60% 40%;
+  }
+  100% {
+    border-radius: 40% 60% 50% 50%;
+  }
+}

@@ -8,9 +8,11 @@ import Contact from "./sections/Contact/Contact";
 import BackToTop from "./components/BackToTop/BackToTop";
 import "./assets/styles/global.scss";
 import MyJourney from "./sections/MyJourney/MyJourney";
+import LiquidLoader from "./components/LiquidLoader/LiquidLoader";
 
 function App() {
   const [showNavbar, setShowNavbar] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const heroSection = document.getElementById("hero");
@@ -29,7 +31,9 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
+  return loading ? (
+    <LiquidLoader onFinish={() => setLoading(false)} />
+  ) : (
     <>
       {showNavbar && <Navbar />}
 
