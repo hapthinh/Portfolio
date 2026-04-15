@@ -1,13 +1,15 @@
-@use './variables' as *;
-@use './reset';
+@use "./variables" as *;
+@use "./reset";
 
 body {
   color: var(--text-main);
-  transition: color $transition, background-color $transition;
+  transition:
+    color $transition,
+    background-color $transition;
 }
 
 body {
-  --hero-bg: linear-gradient(180deg, #38bdf8 , #f8fafc );
+  --hero-bg: linear-gradient(180deg, #38bdf8, #f8fafc);
   --page-bg: #f8fafc;
   --text-main: #1f2937;
   --text-soft: #4b5563;
@@ -18,7 +20,7 @@ body {
 }
 
 body.light {
-  --hero-bg: linear-gradient(180deg, #0c4a6e, #343c44  );
+  --hero-bg: linear-gradient(180deg, #0c4a6e, #343c44);
   --page-bg: #343c44;
   --text-main: #f8fafc;
   --text-soft: #cbd5e1;
@@ -44,4 +46,13 @@ main {
 
 .section {
   padding: 96px 0;
+  transition: background $transition;
+}
+
+.section:nth-child(odd) {
+  background: var(--page-bg);
+}
+
+.section:nth-child(even) {
+  background: color-mix(in srgb, var(--primary) 10%, var(--page-bg));
 }

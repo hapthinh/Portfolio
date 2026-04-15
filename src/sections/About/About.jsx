@@ -1,15 +1,22 @@
-import SectionTitle from '../../components/SectionTitle/SectionTitle';
-import styles from './About.module.scss';
-import { FaStar, FaBolt, FaUsers, FaUser, FaInfinity, FaHandPeace } from 'react-icons/fa'
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import styles from "./About.module.scss";
+import {
+  FaStar,
+  FaBolt,
+  FaUsers,
+  FaUser,
+  FaInfinity,
+  FaHandPeace,
+} from "react-icons/fa";
 
 const traits = [
-  { icon: <FaStar />, label: 'Innovative' },
-  { icon: <FaBolt />, label: 'Fast Learner' },
-  { icon: <FaUsers />, label: 'Teamwork spirit' },
-  { icon: <FaUser />, label: 'Strong self-competence' },
-  { icon: <FaInfinity />, label: 'Problem Solver' },
-  { icon: <FaHandPeace />, label: 'Quickly adapt' },
-]
+  { icon: <FaStar />, label: "Innovative" },
+  { icon: <FaBolt />, label: "Fast Learner" },
+  { icon: <FaUsers />, label: "Teamwork spirit" },
+  { icon: <FaUser />, label: "Strong self-competence" },
+  { icon: <FaInfinity />, label: "Problem Solver" },
+  { icon: <FaHandPeace />, label: "Quickly adapt" },
+];
 
 function About() {
   return (
@@ -19,25 +26,27 @@ function About() {
 
         <div className={styles.textBox}>
           <p>
-            Hi, my name is <span>Toby Ha</span>. I am a frontend developer focused on building
-            clean, responsive and user-friendly web interfaces.
+            Hi, my name is <span>Toby Ha</span>. I am a frontend developer
+            focused on building clean, responsive and user-friendly web
+            interfaces.
           </p>
           <p>
-            I enjoy working with <span>React</span>, modern UI architecture, reusable components,
-            and performance optimization.
+            I enjoy working with <span>React</span>, modern UI architecture,
+            reusable components, and performance optimization.
           </p>
           <p>
-            My goal is to build products that are both visually polished and practical for real users.
+            My goal is to build products that are both visually polished and
+            practical for real users.
           </p>
         </div>
-                          <div className={styles.traits}>
-            {traits.map((item) => (
-              <div key={item.label} className={styles.trait}>
-                <span className={styles.icon}>{item.icon}</span>
-                <span>{item.label}</span>
-              </div>
-            ))}
-          </div>
+        <div className={styles.traits}>
+          {traits.map((item) => (
+            <div key={item.label} className={styles.trait}>
+              <span className={styles.icon}>{item.icon}</span>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
