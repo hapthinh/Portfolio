@@ -1,0 +1,48 @@
+import { useEffect, useState } from 'react'
+import Navbar from './components/Navbar/Navbar'
+import Hero from './sections/Hero/Hero'
+import About from './sections/About/About'
+import Skills from './sections/Skills/Skills'
+import Projects from './sections/Projects/Projects';
+import Contact from './sections/Contact/Contact';
+import BackToTop from './components/BackToTop/BackToTop';
+import './assets/styles/global.scss'
+
+function App() {
+  const [showNavbar, setShowNavbar] = useState(false)
+
+  useEffect(() => {
+    const heroSection = document.getElementById('hero')
+    if (!heroSection) return
+
+    const handleScroll = () => {
+      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
+      const currentScroll = window.scrollY + 80
+
+      setShowNavbar(currentScroll >= heroBottom)
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <>
+      {showNavbar && <Navbar />}
+
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+      </main>
+
+      <BackToTop />
+    </>
+  )
+}
+
+export default App

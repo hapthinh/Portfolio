@@ -1,0 +1,62 @@
+@use '../../assets/styles/variables' as *;
+
+.card {
+  overflow: hidden;
+  border-radius: $radius;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: $shadow;
+  border: 1px solid $border;
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.body {
+  padding: 20px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  span {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid $primary;
+    color: $primary;
+    font-size: 14px;
+  }
+}
+
+h3 {
+  font-size: 28px;
+  color: $primary;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+}

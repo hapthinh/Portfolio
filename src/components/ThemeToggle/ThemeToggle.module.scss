@@ -1,0 +1,191 @@
+.themeToggle {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+#hideCheckbox {
+  display: none;
+}
+
+.toggle {
+  --toggle-width: 86px;
+  --toggle-height: 40px;
+  --toggle-padding: 4px;
+  --toggle-bg-dark: #000;
+  --toggle-bg-light: #dff4ff;
+  --moon-color: #f5f1e8;
+  --sun-color: #ffd25e;
+  --star-color: #fff;
+  --crater-color: #d7d2c8;
+
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  border-radius: 999px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.35s ease;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.25);
+  background: var(--toggle-bg-light);
+}
+
+.toggleButton {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--sun-color);
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.crater {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--crater-color);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.crater1 {
+  width: 6px;
+  height: 6px;
+  top: 8px;
+  left: 18px;
+}
+
+.crater2 {
+  width: 5px;
+  height: 5px;
+  top: 17px;
+  left: 8px;
+}
+
+.crater3 {
+  width: 4px;
+  height: 4px;
+  top: 18px;
+  left: 20px;
+}
+
+.crater4 {
+  width: 3px;
+  height: 3px;
+  top: 10px;
+  left: 11px;
+}
+
+.crater5 {
+  width: 4px;
+  height: 4px;
+  top: 22px;
+  left: 15px;
+}
+
+.crater6 {
+  width: 3px;
+  height: 3px;
+  top: 13px;
+  left: 23px;
+}
+
+.crater7 {
+  width: 2px;
+  height: 2px;
+  top: 7px;
+  left: 15px;
+}
+
+.star {
+  position: absolute;
+  background: var(--star-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  transform: scale(0.6);
+}
+
+.star1 {
+  width: 2px;
+  height: 2px;
+  top: 9px;
+  right: 20px;
+}
+
+.star2 {
+  width: 3px;
+  height: 3px;
+  top: 15px;
+  right: 30px;
+}
+
+.star3 {
+  width: 2px;
+  height: 2px;
+  top: 25px;
+  right: 18px;
+}
+
+.star4 {
+  width: 1.5px;
+  height: 1.5px;
+  top: 8px;
+  right: 38px;
+}
+
+.star5 {
+  width: 2px;
+  height: 2px;
+  top: 28px;
+  right: 34px;
+}
+
+.star6 {
+  width: 1.5px;
+  height: 1.5px;
+  top: 11px;
+  right: 12px;
+}
+
+.star7 {
+  width: 2px;
+  height: 2px;
+  top: 20px;
+  right: 10px;
+}
+
+.star8 {
+  width: 1.5px;
+  height: 1.5px;
+  top: 30px;
+  right: 26px;
+}
+
+#hideCheckbox:checked + .toggle {
+  background: var(--toggle-bg-dark);
+}
+
+#hideCheckbox:checked + .toggle .toggleButton {
+  transform: translateX(46px);
+  background: var(--moon-color);
+}
+
+#hideCheckbox:checked + .toggle .crater {
+  opacity: 1;
+}
+
+#hideCheckbox:checked + .toggle .star {
+  opacity: 1;
+  transform: scale(1);
+}

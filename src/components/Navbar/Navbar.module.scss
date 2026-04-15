@@ -1,0 +1,46 @@
+@use '../../assets/styles/variables' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  background: transparent;
+  border-bottom: 1px solid $border;
+  display: flex;
+  float: left;
+}
+
+.inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: bottom black 1px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  gap: 32px;
+
+  a {
+    font-size: 20px;
+    font-weight: 600;
+    transition: color $transition;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.active {
+  color: $primary;
+}

@@ -1,0 +1,15 @@
+@use '../../assets/styles/variables' as *;
+
+.button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: $primary;
+  color: white;
+  box-shadow: $shadow;
+}
