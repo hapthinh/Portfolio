@@ -189,3 +189,23 @@
   opacity: 1;
   transform: scale(1);
 }
+
+@media (max-width: 768px) {
+  .toggle {
+    --toggle-width: 62px;
+    --toggle-height: 32px;
+  }
+
+  .toggleButton {
+    width: 26px;
+    height: 24px;
+  }
+
+  #hideCheckbox:checked + .toggle .toggleButton {
+    transform: translateX(28px);
+  }
+
+  .themeToggle {
+    margin-left: 5px;
+  }
+}

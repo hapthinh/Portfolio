@@ -15,6 +15,8 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (loading) return;
+
     const heroSection = document.getElementById("hero");
     if (!heroSection) return;
 
@@ -29,7 +31,7 @@ function App() {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [loading]);
 
   return loading ? (
     <LiquidLoader onFinish={() => setLoading(false)} />

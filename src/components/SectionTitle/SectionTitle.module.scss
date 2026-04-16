@@ -25,3 +25,9 @@
   border-radius: 999px;
   background: $primary;
 }
+
+@media (max-width: 768px) {
+  .wrapper {
+    margin-bottom: 32px;
+  }
+}

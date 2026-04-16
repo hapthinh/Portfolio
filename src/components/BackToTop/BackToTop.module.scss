@@ -1,4 +1,4 @@
-@use '../../assets/styles/variables' as *;
+@use "../../assets/styles/variables" as *;
 
 .button {
   position: fixed;
@@ -12,4 +12,17 @@
   background: $primary;
   color: white;
   box-shadow: $shadow;
+  animation: floatUpDown 1.5s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

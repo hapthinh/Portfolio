@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import styles from "./Navbar.module.scss";
+import { TegakiRenderer } from "tegaki";
+import caveat from "tegaki/fonts/caveat";
 
 const links = [
   { id: "about", label: "About" },
@@ -39,6 +41,13 @@ function Navbar() {
         <a href="#hero" className={styles.logo}>
           Toby Ha
         </a>
+        {/* <TegakiRenderer
+          font={caveat}
+          style={{ fontSize: "48px", WebkitTextFillColor: "black" }}
+          text="Toby Ha"
+        >
+          Toby Ha
+        </TegakiRenderer> */}
 
         <nav>
           <ul className={styles.menu}>
