@@ -8,8 +8,8 @@ export const projects = [
     image: portfolioImg,
     description: "Personal portfolio website built with React and SCSS.",
     tags: ["React", "SCSS", "Responsive"],
-    liveUrl: "https://your-live-demo.com",
-    repoUrl: "https://github.com/your-repo",
+    liveUrl: "https://hapthinh.github.io/Portfolio/",
+    repoUrl: "https://github.com/hapthinh/Portfolio",
   },
   {
     title: "Ecommerce Website",
@@ -18,14 +18,14 @@ export const projects = [
       "A modern ecommerce website with product browsing and UI interactions.",
     tags: ["React", "Wordpress", "Shopify"],
     liveUrl: "https://www.classicwire.com/",
-    repoUrl: "https://github.com/your-repo",
+    repoUrl: "#",
   },
   {
     title: "Dashboard App",
     image: novoImg,
     description: "Admin dashboard with charts, tables and authentication flow.",
     tags: ["React", "Chart", "Auth"],
-    liveUrl: "https://your-live-demo.com",
-    repoUrl: "https://github.com/your-repo",
+    liveUrl: "#",
+    repoUrl: "#",
   },
 ];
