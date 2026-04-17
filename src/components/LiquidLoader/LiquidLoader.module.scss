@@ -1,7 +1,9 @@
 .wrapper {
   position: fixed;
   inset: 0;
-  background: #0b1220;
+  background:
+    radial-gradient(circle at top, rgba(0, 229, 255, 0.08), transparent 35%),
+    #0b1220;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,21 +11,69 @@
   overflow: hidden;
 }
 
-.drop {
-  width: 24px;
-  height: 24px;
-  background: radial-gradient(circle at 30% 30%, #67e8f9, #00e5ff);
-  border-radius: 50%;
-  box-shadow: 0 0 20px #00e5ff;
-
-  animation: morph 1.2s infinite alternate;
+.scene {
+  position: relative;
+  width: 220px;
+  height: 240px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
 
-@keyframes morph {
-  0% {
-    border-radius: 50% 50% 60% 40%;
-  }
-  100% {
-    border-radius: 40% 60% 50% 50%;
-  }
+.drop,
+.splashLeft,
+.splashRight {
+  position: absolute;
+  background: radial-gradient(circle at 30% 30%, #a5f3fc 0%, #22d3ee 45%, #00bcd4 100%);
+  box-shadow:
+    0 0 14px rgba(34, 211, 238, 0.45),
+    0 0 30px rgba(0, 229, 255, 0.2);
+}
+
+.drop {
+  top: 0;
+  width: 28px;
+  height: 36px;
+  border-radius: 50% 50% 55% 55% / 40% 40% 60% 60%;
+  filter: saturate(1.1);
+}
+
+.drop::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  width: 8px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+  filter: blur(1px);
+}
+
+.shadow {
+  position: absolute;
+  bottom: 18px;
+  width: 56px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  filter: blur(6px);
+}
+
+.splashLeft,
+.splashRight {
+  bottom: 36px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.ring {
+  position: absolute;
+  bottom: 24px;
+  width: 44px;
+  height: 14px;
+  border: 2px solid rgba(103, 232, 249, 0.75);
+  border-radius: 50%;
+  filter: blur(0.2px);
 }
