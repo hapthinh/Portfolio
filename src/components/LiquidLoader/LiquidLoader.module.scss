@@ -1,79 +1,181 @@
 .wrapper {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at top, rgba(0, 229, 255, 0.08), transparent 35%),
-    #0b1220;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 42%, rgba(204, 125, 45, 0.12), transparent 28%), #0b1220;
+}
+
+.capybaraLoader {
+  --fur: rgb(204, 125, 45);
+  --fur-dark: rgb(83, 56, 28);
+  position: relative;
+  width: 14em;
+  height: 10em;
+  color: var(--fur-dark);
+  font-size: clamp(0.72rem, 2.7vw, 1rem);
+  transform: scale(0.9);
+}
+
+.capybara { position: relative; z-index: 1; width: 100%; height: 7.5em; }
+
+.capyBody {
+  position: relative;
+  z-index: 1;
+  width: 85%;
+  height: 100%;
+  border-radius: 45%;
+  background: linear-gradient(var(--fur), 90%, var(--fur-dark));
+  animation: moveBody 1s linear infinite;
+}
+
+.capyHead {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 7.5em;
+  height: 7em;
+  border-radius: 3.5em;
+  background: var(--fur);
+  box-shadow: -1em 0 var(--fur-dark);
+  animation: moveBody 1s linear infinite;
+}
+
+.capyEar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 2em;
+  height: 2em;
+  overflow: hidden;
+  border-radius: 50%;
+  background: linear-gradient(-45deg, var(--fur), 90%, var(--fur-dark));
+}
+
+.capyEar:nth-of-type(2) {
+  left: 5em;
+  background: linear-gradient(25deg, var(--fur), 90%, var(--fur-dark));
+}
+
+.capyEarInner {
+  position: absolute;
+  bottom: 0;
+  left: 0.5em;
+  width: 100%;
+  height: 1em;
+  border-radius: 50%;
+  background: var(--fur-dark);
+  transform: rotate(-45deg);
+}
+
+.capyMouth {
+  position: absolute;
+  bottom: 0;
+  left: 2.5em;
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-.scene {
-  position: relative;
-  width: 220px;
-  height: 240px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.drop,
-.splashLeft,
-.splashRight {
-  position: absolute;
-  background: radial-gradient(circle at 30% 30%, #a5f3fc 0%, #22d3ee 45%, #00bcd4 100%);
-  box-shadow:
-    0 0 14px rgba(34, 211, 238, 0.45),
-    0 0 30px rgba(0, 229, 255, 0.2);
-}
-
-.drop {
-  top: 0;
-  width: 28px;
-  height: 36px;
-  border-radius: 50% 50% 55% 55% / 40% 40% 60% 60%;
-  filter: saturate(1.1);
-}
-
-.drop::before {
-  content: "";
-  position: absolute;
-  top: 6px;
-  left: 7px;
-  width: 8px;
-  height: 10px;
+  justify-content: space-around;
+  width: 3.5em;
+  height: 2em;
+  padding: 0.5em;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.45);
-  filter: blur(1px);
+  background: var(--fur-dark);
+  box-sizing: border-box;
 }
 
-.shadow {
-  position: absolute;
-  bottom: 18px;
-  width: 56px;
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.28);
-  filter: blur(6px);
-}
-
-.splashLeft,
-.splashRight {
-  bottom: 36px;
-  width: 12px;
-  height: 12px;
+.capyLips {
+  width: 0.25em;
+  height: 0.75em;
   border-radius: 50%;
+  background: var(--fur);
+  transform: rotate(-45deg);
 }
 
-.ring {
+.capyLips:nth-child(2) { transform: rotate(45deg); }
+
+.capyEye {
   position: absolute;
-  bottom: 24px;
-  width: 44px;
-  height: 14px;
-  border: 2px solid rgba(103, 232, 249, 0.75);
-  border-radius: 50%;
-  filter: blur(0.2px);
+  bottom: 3.5em;
+  left: 1.5em;
+  width: 2em;
+  height: 0.5em;
+  border-radius: 5em;
+  background: var(--fur-dark);
+  transform: rotate(45deg);
+}
+
+.capyEye:last-child { left: 5.5em; width: 1.75em; transform: rotate(-45deg); }
+
+.capyLegBack {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 6em;
+  height: 5em;
+  border-radius: 2em;
+  background: linear-gradient(var(--fur), 95%, var(--fur-dark));
+  animation: moveBody 1s linear infinite;
+}
+
+.capyLeg {
+  position: absolute;
+  bottom: 0;
+  left: 3.25em;
+  z-index: 2;
+  width: 1.75em;
+  height: 3em;
+  border-radius: 0.75em;
+  background: linear-gradient(var(--fur), 80%, var(--fur-dark));
+  box-shadow: inset 0 -0.5em var(--fur-dark);
+  animation: moveLeg 1s linear infinite;
+}
+
+.capyLeg:nth-of-type(3) {
+  left: 0.5em;
+  width: 1.25em;
+  height: 2em;
+  animation: moveLegAlt 1s linear infinite 75ms;
+}
+
+.loaderTrack { position: relative; z-index: 1; width: 100%; height: 2.5em; overflow: hidden; }
+
+.loaderLine {
+  width: 50em;
+  height: 0.5em;
+  border-top: 0.5em dashed var(--fur-dark);
+  animation: moveLine 10s linear infinite;
+}
+
+@keyframes moveLeg {
+  0%, 100% { transform: rotate(-45deg) translateX(-5%); }
+  50% { transform: rotate(45deg) translateX(5%); }
+}
+
+@keyframes moveLegAlt {
+  0%, 100% { transform: rotate(45deg); }
+  50% { transform: rotate(-45deg); }
+}
+
+@keyframes moveBody {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(2%); }
+}
+
+@keyframes moveLine {
+  0% { opacity: 0; transform: translateX(0); }
+  5%, 95% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-70%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capyBody,
+  .capyHead,
+  .capyLegBack,
+  .capyLeg,
+  .loaderLine { animation: none; }
 }

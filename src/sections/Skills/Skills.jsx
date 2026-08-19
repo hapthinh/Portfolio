@@ -6,13 +6,22 @@ function Skills() {
     <section id="skills" className={styles.skillsSection}>
       <div className="container">
         <h2 className={styles.sectionTitle}>TECHNICAL SKILLS</h2>
-        <div style={{ overflow: "hidden" }}>
-          <div className={styles.highlightRow}>
+        <div className={styles.highlightViewport}>
+          <div className={styles.highlightTrack}>
+            <div className={styles.highlightGroup}>
+              {skillHighlights.map((item) => (
+                <span key={item} className={styles.highlightChip} data-skill-highlight>
+                  {item}
+                </span>
+              ))}
+            </div>
+            <div className={styles.highlightGroup} aria-hidden="true">
             {skillHighlights.map((item) => (
               <span key={item} className={styles.highlightChip}>
                 {item}
               </span>
             ))}
+            </div>
           </div>
         </div>
 

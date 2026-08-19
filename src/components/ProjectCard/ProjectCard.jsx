@@ -17,12 +17,24 @@ function ProjectCard({ project }) {
         <p>{project.description}</p>
 
         <div className={styles.actions}>
-          <a href={project.repoUrl} target="_blank" rel="noreferrer">
-            <FaGithub /> Repo
-          </a>
-          <a href={project.liveUrl} target="_blank" rel="noreferrer">
-            <FaLaptop /> Live
-          </a>
+          {project.repoUrl ? (
+            <a href={project.repoUrl} target="_blank" rel="noreferrer">
+              <FaGithub /> Repo
+            </a>
+          ) : (
+            <span className={styles.unavailable} aria-label="Repository is private">
+              <FaGithub /> Private
+            </span>
+          )}
+          {project.liveUrl ? (
+            <a href={project.liveUrl} target="_blank" rel="noreferrer">
+              <FaLaptop /> Live
+            </a>
+          ) : (
+            <span className={styles.unavailable} aria-label="Live demo coming soon">
+              <FaLaptop /> Coming soon
+            </span>
+          )}
         </div>
       </div>
     </article>

@@ -65,13 +65,7 @@ export const skillGroups = [
   {
     title: "Backend / Data",
     icon: FaDatabase,
-    items: [
-      "REST API Integration",
-      "Firebase",
-      "Supabase",
-      "MySQL Basics",
-      "JSON Data",
-    ],
+    items: ["REST API Integration", "Firebase", "MySQL Basics", "JSON Data"],
   },
   {
     title: "Workflow",

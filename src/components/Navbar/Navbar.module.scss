@@ -7,10 +7,8 @@
   width: 100%;
   z-index: 1000;
   backdrop-filter: blur(12px);
-  background: transparent;
+  background: var(--navbar-bg);
   border-bottom: 1px solid $border;
-  display: flex;
-  float: left;
 }
 
 .inner {
@@ -18,7 +16,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: bottom black 1px;
 }
 
 .logo {
@@ -45,17 +42,75 @@
   color: $primary;
 }
 
-@media (max-width: 768px) {
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.menuButton {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  color: var(--text-main);
+  font-size: 20px;
+}
+
+@media (max-width: 640px) {
+  .inner {
+    position: relative;
+  }
+
   .logo {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
   }
 
+  .nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 14px 14px;
+    background: var(--card-bg);
+    box-shadow: $shadow;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity $transition, transform $transition, visibility $transition;
+  }
+
+  .navOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
   .menu {
-    gap: 10px;
-    
+    flex-direction: column;
+    gap: 2px;
+
     a {
-      font-size: 12px;
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 14px;
+      border-radius: 8px;
+      font-size: 16px;
     }
+  }
+
+  .menuButton {
+    display: grid;
+    place-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    transition: none;
   }
 }

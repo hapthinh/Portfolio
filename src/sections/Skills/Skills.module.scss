@@ -17,18 +17,27 @@
     0 0 24px rgba(65, 224, 255, 0.08);
 }
 
-.highlightRow {
+.highlightViewport {
+  overflow: hidden;
+  margin-bottom: 26px;
+}
+
+.highlightTrack {
+  display: flex;
+  width: max-content;
+  animation: scroll 18s linear infinite;
+}
+
+.highlightGroup {
   display: flex;
   flex-wrap: nowrap;
   gap: 16px;
-  padding: 10px 0 18px;
-  margin-bottom: 26px;
-  scrollbar-width: none;
-  animation: scroll 10s linear infinite;
+  padding: 10px 8px 18px;
 }
 
-.highlightRow::-webkit-scrollbar {
-  display: none;
+.highlightViewport:hover .highlightTrack,
+.highlightViewport:focus-within .highlightTrack {
+  animation-play-state: paused;
 }
 
 .highlightChip {
@@ -117,6 +126,26 @@
 }
 
 @media (max-width: 1100px) {
+  .highlightViewport {
+    overflow: visible;
+  }
+
+  .highlightTrack {
+    display: block;
+    width: auto;
+    animation: none;
+  }
+
+  .highlightGroup {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .highlightGroup[aria-hidden="true"] {
+    display: none;
+  }
+
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -156,6 +185,12 @@
     transform: translateX(0);
   }
   100% {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .highlightTrack {
+    animation: none;
   }
 }

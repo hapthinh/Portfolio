@@ -16,7 +16,7 @@ export const experiences = [
   },
   {
     jobTitle: "SOFTWARE ENGINEER",
-    companyAndTime: "ITC Group * May 2025 - August 2025",
+    companyAndTime: "ITC Group * May 2025 - September 2025",
     description:
       "Gained hands-on experience in building web applications using NestJS and Next.js during a Software Engineer internship at ITC Group. Participated in developing and maintaining scalable backend services and modern frontend interfaces. Applied refactoring techniques to improve code quality, readability, and performance. Collaborated with team members in an on-site working environment to deliver features and fix issues.",
     skills: ["Nestjs", "Nextjs", "Docker", "Software Development", "Git"],

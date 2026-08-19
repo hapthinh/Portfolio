@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import styles from "./Navbar.module.scss";
-import { TegakiRenderer } from "tegaki";
-import caveat from "tegaki/fonts/caveat";
 
 const links = [
   { id: "about", label: "About" },
@@ -14,6 +13,7 @@ const links = [
 
 function Navbar() {
   const [active, setActive] = useState("about");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = links
@@ -35,27 +35,31 @@ function Navbar() {
     return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
+
   return (
     <header className={styles.navbar}>
       <div className={`container ${styles.inner}`}>
         <a href="#hero" className={styles.logo}>
           Toby Ha
         </a>
-        {/* <TegakiRenderer
-          font={caveat}
-          style={{ fontSize: "48px", WebkitTextFillColor: "black" }}
-          text="Toby Ha"
-        >
-          Toby Ha
-        </TegakiRenderer> */}
-
-        <nav>
+        <nav id="primary-navigation" className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}>
           <ul className={styles.menu}>
             {links.map((link) => (
               <li key={link.id}>
                 <a
                   href={`#${link.id}`}
                   className={active === link.id ? styles.active : ""}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
                 </a>
@@ -64,7 +68,19 @@ function Navbar() {
           </ul>
         </nav>
 
-        <ThemeToggle />
+        <div className={styles.controls}>
+          <ThemeToggle />
+          <button
+            type="button"
+            className={styles.menuButton}
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            aria-controls="primary-navigation"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((current) => !current)}
+          >
+            {menuOpen ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
+          </button>
+        </div>
       </div>
     </header>
   );

@@ -13,6 +13,16 @@
   color: white;
   box-shadow: $shadow;
   animation: floatUpDown 1.5s ease-in-out infinite;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity $transition, transform $transition;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 @keyframes floatUpDown {
@@ -24,5 +34,12 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    animation: none;
+    transition: none;
   }
 }

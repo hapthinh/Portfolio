@@ -18,14 +18,14 @@ export const projects = [
       "A modern ecommerce website with product browsing and UI interactions.",
     tags: ["React", "Wordpress", "Shopify"],
     liveUrl: "https://www.classicwire.com/",
-    repoUrl: "#",
+    repoUrl: null,
   },
   {
     title: "Dashboard App",
     image: novoImg,
     description: "Admin dashboard with charts, tables and authentication flow.",
     tags: ["React", "Chart", "Auth"],
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: null,
+    repoUrl: null,
   },
 ];
